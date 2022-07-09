@@ -22,7 +22,7 @@ app.options('*', cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-mongoose.connect(DB)
+mongoose.connect('mongodb+srv://PavelLan:Pavel22011978@cluster0.495ruax.mongodb.net/?retryWrites=true&w=majority')
   .then(() => console.log('MongoDB connected.'))
   .catch((error) => console.log(error));
 
