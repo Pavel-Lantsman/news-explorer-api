@@ -34,9 +34,11 @@ const registerUser = (req, res, next) => {
 };
 
 const getCurrentUser = (req, res, next) => {
-  User.findById(req.user._id)
-    .orFail()
-    .then( (user) => res.send(user))
+  const { _id: userId } = req.user;
+  User.findById(userId)
+    .then((user) => {
+      res.send({ email: user.email, name: user.name });
+    })
     .catch(next);
 };
 
